@@ -11,13 +11,14 @@ export default {
 <style lang="scss">
 .cyber,
 .cyber::after {
+  @include theme-color(color, stroke, 9);
+
   position: relative;
   width: 380px;
   height: 86px;
   font-size: 36px;
   background: linear-gradient(45deg, transparent 5%, #ff013c 5%);
   border: 0;
-  color: #fff;
   letter-spacing: 3px;
   line-height: 88px;
   box-shadow: 6px 0 0 #00e6f6;
