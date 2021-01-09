@@ -234,3 +234,8 @@ body {
 * {
   box-sizing: border-box;
 }
+
+::selection {
+  color: $theme-primary-8;
+  background: $theme-view;
+}
