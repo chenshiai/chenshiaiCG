@@ -4,7 +4,6 @@
       class="mask"
       :style="{
         'z-index': data.zIndex,
-        opacity: data.opacity,
       }"
       @click="handelHeight"
     >
@@ -31,12 +30,11 @@ export default defineComponent({
       show: true,
       tipHeight: '54px',
       zIndex: computed(() => (data.show ? '9999' : '-9999')),
-      opacity: computed(() => (data.show ? 1 : 0)),
     });
     const handelHeight = () => {
       if (data.show) {
         data.show = false;
-        data.tipHeight = '2px';
+        data.tipHeight = '0px';
       } else {
         data.show = true;
         data.tipHeight = '54px';
@@ -59,7 +57,7 @@ export default defineComponent({
 }
 
 .mask-tip {
-  --mask-tip-height: 2px;
+  --mask-tip-height: 0px;
 
   @include theme-color(color, stroke, 11);
   @include theme-color(background-color, primary, 1);
