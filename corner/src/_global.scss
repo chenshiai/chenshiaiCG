@@ -53,6 +53,8 @@ $theme-warn-5: #fff5ed !default;
 // Rate color
 $rate-star-color: #fad20c !default;
 
+$theme-view: #ffc343 !default;
+
 $loading-icon-youzan-color: #e00 !default;
 
 $theme-colors: (
@@ -208,8 +210,16 @@ $theme-shadow-var: (
   box-shadow: var(--shadow-spec-#{$name}, $shadow-var);
 }
 
+@font-face {
+  font-family: 'sao_font';
+  // 默认路径是 src/components，所以要返回上一层。还不知道怎么处理。
+  src: url('../assets/font/sao.woff2');
+}
+
 body {
   @include theme-color(background, stroke, 7);
+  
+  font-family: 'sao_font';
 }
 
 #app {
