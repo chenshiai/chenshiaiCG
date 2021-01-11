@@ -217,8 +217,8 @@ $theme-shadow-var: (
 }
 
 body {
-  @include theme-color(background, stroke, 7);
-  
+  @include theme-color(background, stroke, 6);
+
   font-family: 'sao_font';
 }
 

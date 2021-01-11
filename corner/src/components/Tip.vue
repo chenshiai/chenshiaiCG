@@ -1,28 +1,25 @@
 <template>
   <teleport to="body">
-    <div :class="['mask', data.show ? 'mask__open' : 'mask__close']" @click="handelHeight">
-      <div class="mask-tip" id="masks">Now Loading</div>
+    <div :class="['mask', modelValue ? 'mask__open' : 'mask__close']" @click="$emit('update:modelValue', false)">
+      <div class="mask-tip" id="masks">{{ text }}</div>
     </div>
   </teleport>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from 'vue';
-
-interface IData {
-  show: boolean;
-}
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'masks-tip',
-  setup() {
-    const data = reactive<IData>({
-      show: true,
-    });
-    const handelHeight = () => {
-      data.show = !data.show;
-    };
-    return { data, handelHeight };
+  props: {
+    modelValue: {
+      type: Boolean,
+      default: false,
+    },
+    text: {
+      type: String,
+      default: 'Now Loading',
+    },
   },
 });
 </script>
@@ -40,7 +37,10 @@ export default defineComponent({
 
   &__open {
     z-index: 9999;
-    --mask-tip-height: 54px;
+    --mask-tip-height: 40px;
+
+    animation: blink 100ms linear;
+    animation-timing-function: steps(2, end);
   }
 
   &__close {
@@ -59,10 +59,44 @@ export default defineComponent({
   left: 0;
   width: 100%;
   text-align: center;
-  font-size: 32px;
+  font-size: 26px;
   line-height: var(--mask-tip-height);
   transform-origin: center;
-  transition: all 0.1s ease-in-out;
+  transition: all 100ms ease-in-out;
   transform: translateY(-50%);
+
+  &::before {
+    content: '';
+    height: 100%;
+    width: 60px;
+    transform: skewX(45deg) translateZ(0);
+    background-image: linear-gradient(0deg, hsla(0, 0%, 100%, 0.4), hsla(0, 0%, 100%, 0.4) 50%, hsla(0, 0%, 100%, 0.4));
+    position: absolute;
+    right: -20px;
+    top: 0;
+  }
+
+  &::after {
+    content: '';
+    height: 100%;
+    width: 60px;
+    transform: skewX(45deg) translateZ(0);
+    background-image: linear-gradient(0deg, hsla(0, 0%, 100%, 0.4), hsla(0, 0%, 100%, 0.4) 50%, hsla(0, 0%, 100%, 0.4));
+    position: absolute;
+    left: -20px;
+    top: 0;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 </style>
