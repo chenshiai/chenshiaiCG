@@ -1,44 +1,26 @@
 <template>
   <teleport to="body">
-    <div
-      class="mask"
-      :style="{
-        'z-index': data.zIndex,
-      }"
-      @click="handelHeight"
-    >
-      <div
-        :style="{
-          '--mask-tip-height': data.tipHeight,
-        }"
-        class="mask-tip"
-        id="masks"
-      >
-        Now Loading
-      </div>
+    <div :class="['mask', data.show ? 'mask__open' : 'mask__close']" @click="handelHeight">
+      <div class="mask-tip" id="masks">Now Loading</div>
     </div>
   </teleport>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, nextTick, computed } from 'vue';
+import { defineComponent, reactive } from 'vue';
+
+interface IData {
+  show: boolean;
+}
 
 export default defineComponent({
   name: 'masks-tip',
   setup() {
-    const data = reactive({
+    const data = reactive<IData>({
       show: true,
-      tipHeight: '54px',
-      zIndex: computed(() => (data.show ? '9999' : '-9999')),
     });
     const handelHeight = () => {
-      if (data.show) {
-        data.show = false;
-        data.tipHeight = '0px';
-      } else {
-        data.show = true;
-        data.tipHeight = '54px';
-      }
+      data.show = !data.show;
     };
     return { data, handelHeight };
   },
@@ -54,11 +36,20 @@ export default defineComponent({
   height: 100%;
   overflow: hidden;
   user-select: none;
+  --mask-tip-height: 0px;
+
+  &__open {
+    z-index: 9999;
+    --mask-tip-height: 54px;
+  }
+
+  &__close {
+    --mask-tip-height: 0px;
+    z-index: -9999;
+  }
 }
 
 .mask-tip {
-  --mask-tip-height: 0px;
-
   @include theme-color(color, stroke, 11);
   @include theme-color(background-color, primary, 1);
 
@@ -73,6 +64,5 @@ export default defineComponent({
   transform-origin: center;
   transition: all 0.1s ease-in-out;
   transform: translateY(-50%);
-  opacity: 2;
 }
 </style>
