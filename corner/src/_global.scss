@@ -210,32 +210,3 @@ $theme-shadow-var: (
   box-shadow: var(--shadow-spec-#{$name}, $shadow-var);
 }
 
-@font-face {
-  font-family: 'sao_font';
-  // 默认路径是 src/components，所以要返回上一层。还不知道怎么处理。
-  src: url('../assets/font/sao.woff2');
-}
-
-body {
-  @include theme-color(background, stroke, 6);
-
-  font-family: 'sao_font';
-}
-
-#app {
-  @include theme-color(color, stroke, 1);
-
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin-top: 60px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-::selection {
-  color: $theme-primary-8;
-  background: $theme-view;
-}

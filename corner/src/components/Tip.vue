@@ -1,13 +1,15 @@
 <template>
   <teleport to="body">
     <div :class="['mask', modelValue ? 'mask__open' : 'mask__close']" @click="$emit('update:modelValue', false)">
-      <div class="mask-tip" id="masks">{{ text }}</div>
+      <div :class="['mask-tip', type]" id="masks">{{ text }}</div>
     </div>
   </teleport>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+
+// type => 'primary' | 'success' | 'warn' | 'error' | 'info';
 
 export default defineComponent({
   name: 'masks-tip',
@@ -20,11 +22,15 @@ export default defineComponent({
       type: String,
       default: 'Now Loading',
     },
+    type: {
+      type: String,
+      default: 'primary',
+    },
   },
 });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .mask {
   position: fixed;
   top: 0;
@@ -39,11 +45,12 @@ export default defineComponent({
     z-index: 9999;
     --mask-tip-height: 40px;
 
-    animation: blink 100ms linear;
+    animation: blink 100ms ease;
     animation-timing-function: steps(2, end);
   }
 
   &__close {
+    opacity: 0;
     --mask-tip-height: 0px;
     z-index: -9999;
   }
@@ -51,7 +58,6 @@ export default defineComponent({
 
 .mask-tip {
   @include theme-color(color, stroke, 11);
-  @include theme-color(background-color, primary, 1);
 
   position: fixed;
   overflow: hidden;
@@ -64,6 +70,7 @@ export default defineComponent({
   transform-origin: center;
   transition: all 100ms ease-in-out;
   transform: translateY(-50%);
+  z-index: 9999;
 
   &::before {
     content: '';
@@ -86,6 +93,26 @@ export default defineComponent({
     left: -20px;
     top: 0;
   }
+}
+
+.primary {
+  @include theme-color(background-color, primary, 6);
+}
+
+.success {
+  @include theme-color(background-color, success, 4);
+}
+
+.warn {
+  @include theme-color(background-color, warn, 4);
+}
+
+.error {
+  @include theme-color(background-color, error, 4);
+}
+
+.info {
+  @include theme-color(background-color, stroke, 2);
 }
 
 @keyframes blink {
