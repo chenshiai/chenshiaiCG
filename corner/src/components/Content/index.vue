@@ -1,19 +1,19 @@
 <template>
   <div class="content">
-    <Info />
-    <Container />
+    <div class="info-area">
+      <SelfInfo />
+    </div>
+    <div class="container block-area">A container. 2021-01-12</div>
   </div>
 </template>
 <script>
 import { defineComponent } from 'vue';
-import Info from './Info.vue';
-import Container from './Container.vue';
+import SelfInfo from './SelfInfo.vue';
 
 export default defineComponent({
   name: 'content',
   components: {
-    Info,
-    Container,
+    SelfInfo,
   },
 });
 </script>
@@ -21,5 +21,16 @@ export default defineComponent({
 .content {
   width: 960px;
   margin: 0 auto;
+}
+
+.info-area {
+  width: 240px;
+  height: 100px;
+  float: left;
+}
+.container {
+  width: 700px;
+  height: 900px;
+  float: right;
 }
 </style>
