@@ -45,8 +45,7 @@ export default defineComponent({
     z-index: 9999;
     --mask-tip-height: 40px;
 
-    animation: blink 100ms ease;
-    animation-timing-function: steps(2, end);
+    animation: blink 101ms ease;
   }
 
   &__close {
@@ -119,7 +118,16 @@ export default defineComponent({
   0% {
     opacity: 1;
   }
-  80% {
+  20% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+  }
+  99% {
     opacity: 0;
   }
   100% {

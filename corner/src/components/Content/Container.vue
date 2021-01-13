@@ -1,7 +1,7 @@
 <template>
   <div class="container block-area">A container. 2021-01-12</div>
 </template>
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue';
 
 export default defineComponent({
