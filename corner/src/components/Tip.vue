@@ -1,31 +1,26 @@
 <template>
   <teleport to="body">
-    <div :class="['mask', modelValue ? 'mask__open' : 'mask__close']" @click="$emit('update:modelValue', false)">
-      <div :class="['mask-tip', type]" id="masks">{{ text }}</div>
+    <div :class="['mask', state.tipShow ? 'mask__open' : 'mask__close']" @click="closeTip">
+      <div :class="['mask-tip', state.tipType]" id="masks">{{ state.tipText }}</div>
     </div>
   </teleport>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-
-// type => 'primary' | 'success' | 'warn' | 'error' | 'info';
+import { useStore, mapActions } from 'vuex';
 
 export default defineComponent({
   name: 'masks-tip',
-  props: {
-    modelValue: {
-      type: Boolean,
-      default: false,
-    },
-    text: {
-      type: String,
-      default: 'Now Loading',
-    },
-    type: {
-      type: String,
-      default: 'primary',
-    },
+  methods: {
+    ...mapActions(['closeTip']),
+  },
+  setup() {
+    const store = useStore();
+
+    return {
+      state: store.state,
+    };
   },
 });
 </script>

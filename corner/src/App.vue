@@ -1,28 +1,29 @@
 <template>
-  <Nav @click="data.show = true" />
+  <NavTop />
   <Content />
-  <Tip v-model="data.show" text="Nothing" />
+  <Tip />
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from 'vue';
+import { defineComponent, onMounted } from 'vue';
 import Tip from './components/Tip.vue';
-import Nav from './components/Nav.vue';
+import NavTop from './components/NavTop.vue';
 import Content from './components/Content/index.vue';
+import { useStore } from 'vuex';
 
 export default defineComponent({
   name: 'App',
   components: {
     Tip,
-    Nav,
+    NavTop,
     Content,
   },
   setup() {
-    const data = reactive({
-      show: true,
+    const store = useStore();
+    onMounted(() => {
+      store.commit('openTip');
     });
-    return { data };
-  }
+  },
 });
 </script>
 
@@ -44,7 +45,7 @@ body {
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin-top: 80px;
+  margin-top: 26px;
 }
 
 * {
@@ -52,8 +53,6 @@ body {
 }
 
 ::selection {
-  @include theme-color(color, primary, 8);
-
   background: $theme-view;
 }
 

@@ -9,6 +9,7 @@
     </div>
   </div>
 </template>
+
 <script lang="ts">
 import { defineComponent } from 'vue';
 
@@ -16,15 +17,19 @@ export default defineComponent({
   name: 'self-info',
 });
 </script>
+
 <style lang="scss" scoped>
 .self-info {
   display: flex;
+  margin-bottom: 16px;
 }
+
 .qlogo {
   display: block;
   width: 40px;
   margin-right: 10px;
 }
+
 .nickname {
   line-height: 40px;
   margin-right: 20px;

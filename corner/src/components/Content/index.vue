@@ -2,6 +2,7 @@
   <div class="content">
     <div class="info-area">
       <SelfInfo />
+      <div id="weather-v2-plugin-standard"></div>
     </div>
     <div class="container block-area">A container. 2021-01-12</div>
   </div>
@@ -33,4 +34,5 @@ export default defineComponent({
   height: 900px;
   float: right;
 }
+
 </style>
