@@ -4,17 +4,21 @@
       <SelfInfo />
       <div id="weather-v2-plugin-standard"></div>
     </div>
-    <div class="container block-area">A container. 2021-01-12</div>
+    <div class="container">
+      <ArticleList />
+    </div>
   </div>
 </template>
 <script>
 import { defineComponent } from 'vue';
 import SelfInfo from './SelfInfo.vue';
+import ArticleList from './ArticleList.vue';
 
 export default defineComponent({
   name: 'content',
   components: {
     SelfInfo,
+    ArticleList,
   },
 });
 </script>
@@ -31,8 +35,6 @@ export default defineComponent({
 }
 .container {
   width: 700px;
-  height: 900px;
   float: right;
 }
-
 </style>

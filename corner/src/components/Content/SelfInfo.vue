@@ -1,7 +1,7 @@
 <template>
   <div class="block-area self-info">
     <img class="qlogo" src="../../assets/logo.jpg" />
-    <span class="nickname">Chen ShiAi</span>
+    <span class="nickname">ChenShiAi</span>
     <div class="motto">
       In this world
       <br />
@@ -22,17 +22,16 @@ export default defineComponent({
 .self-info {
   display: flex;
   margin-bottom: 16px;
+  justify-content: space-between;
 }
 
 .qlogo {
   display: block;
   width: 40px;
-  margin-right: 10px;
 }
 
 .nickname {
   line-height: 40px;
-  margin-right: 20px;
 }
 
 .motto {
