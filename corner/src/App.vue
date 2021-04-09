@@ -45,11 +45,4 @@ body {
 
   background: $theme-view;
 }
-
-.block-area {
-  @include theme-color(background-color, stroke, 9);
-  @include theme-shadow('layer');
-
-  padding: 12px;
-}
 </style>

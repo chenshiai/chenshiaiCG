@@ -1,5 +1,5 @@
 <template>
-  <div class="block-area self-info">
+  <BlockArea class="self-info">
     <img class="qlogo" src="../assets/logo.jpg" />
     <span class="nickname">ChenShiAi</span>
     <div class="motto">
@@ -7,7 +7,7 @@
       <br />
       <span style="margin-left: 30px">In a corner</span>
     </div>
-  </div>
+  </BlockArea>
 </template>
 
 <script lang="ts">
@@ -21,7 +21,6 @@ export default defineComponent({
 <style lang="scss" scoped>
 .self-info {
   display: flex;
-  margin-bottom: 16px;
   font-size: 12px;
   justify-content: space-between;
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="article-list block-area">
+  <BlockArea class="article-list">
     Beautiful spring is here.
     <br />
     The winter is gone.
@@ -31,7 +31,7 @@
     但新的在这里。
     <br />
     春天是个美丽的时节。
-  </div>
+  </BlockArea>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue';

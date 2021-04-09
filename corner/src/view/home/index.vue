@@ -3,7 +3,7 @@
   <div class="content">
     <div class="info-area">
       <SelfInfo />
-      <div class="block-area">
+      <BlockArea title="# 今天出门吗">
         <iframe
           allowtransparency="true"
           frameborder="0"
@@ -12,7 +12,8 @@
           scrolling="no"
           src="//tianqi.2345.com/plugin/widget/index.htm?s=2&z=3&t=0&v=0&d=1&bd=0&k=000000&f=808080&ltf=009944&htf=cc0000&q=1&e=1&a=1&c=54511&w=195&h=96&align=left"
         />
-      </div>
+      </BlockArea>
+      <BlockArea title="# 逼逼叨叨"> 净瞎说 </BlockArea>
     </div>
     <div class="container">
       <ArticleList />
