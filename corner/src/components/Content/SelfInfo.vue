@@ -22,19 +22,21 @@ export default defineComponent({
 .self-info {
   display: flex;
   margin-bottom: 16px;
+  font-size: 12px;
   justify-content: space-between;
-}
 
-.qlogo {
-  display: block;
-  width: 40px;
-}
+  .qlogo {
+    display: block;
+    width: 40px;
+    flex-shrink: 0;
+  }
 
-.nickname {
-  line-height: 40px;
-}
+  .nickname {
+    line-height: 40px;
+  }
 
-.motto {
-  @include theme-color(color, stroke, 4);
+  .motto {
+    @include theme-color(color, stroke, 4);
+  }
 }
 </style>
