@@ -41,6 +41,8 @@ body {
 }
 
 ::selection {
+  @include theme-color(color, stroke, 9);
+
   background: $theme-view;
 }
 
@@ -48,6 +50,6 @@ body {
   @include theme-color(background-color, stroke, 9);
   @include theme-shadow('layer');
 
-  padding: 16px;
+  padding: 12px;
 }
 </style>
