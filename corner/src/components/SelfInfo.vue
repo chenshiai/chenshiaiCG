@@ -1,6 +1,6 @@
 <template>
   <BlockArea class="self-info">
-    <img class="qlogo" src="../assets/logo.jpg" />
+    <img class="qlogo" src="https://saomdpb.com/logo.jpg" />
     <span class="nickname">ChenShiAi</span>
     <div class="motto">
       In this world

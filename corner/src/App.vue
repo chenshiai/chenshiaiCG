@@ -13,12 +13,12 @@ export default defineComponent({
 <style lang="scss">
 @font-face {
   font-family: 'eng';
-  src: url('../_-webfont.woff');
+  src: url('https://saomdpb.com/_-webfont.woff');
 }
 
 @font-face {
   font-family: 'zhn';
-  src: url('../HYWenHei-85W.ttf');
+  src: url('https://saomdpb.com/HYWenHei-85W.ttf');
 }
 
 body {

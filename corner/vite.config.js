@@ -2,6 +2,7 @@ const path = require('path');
 
 module.exports = {
   base: './',
+  outDir: 'corner',
   // sourcemap: true,
   minify: 'esbuild',
   // 配置别名
