@@ -34,16 +34,25 @@
     <div class="topic-content" v-html="MDContent"></div>
   </BlockArea>
 </template>
-<script lang="ts">
-import { defineComponent, computed } from 'vue';
+<script>
+import { defineComponent, computed, onMounted, ref } from 'vue';
 import marked from 'marked';
+import axios from 'axios';
 
 export default defineComponent({
   name: 'article-list',
 
   setup() {
+    const content = ref('');
+
+    onMounted(() => {
+      axios.get('https://raw.githubusercontent.com/chenshiai/beautify-template/master/README.md').then(res => {
+        content.value = res.data;
+      });
+    });
+
     const MDContent = computed(() => {
-      return marked('# 标题 \n *字体* \n **字体**' || '', {
+      return marked(content.value || '', {
         sanitize: true,
       });
     });
