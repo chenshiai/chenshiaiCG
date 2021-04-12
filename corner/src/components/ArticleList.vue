@@ -31,11 +31,25 @@
     但新的在这里。
     <br />
     春天是个美丽的时节。
+    <div class="topic-content" v-html="MDContent"></div>
   </BlockArea>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, computed } from 'vue';
+import marked from 'marked';
 
-export default defineComponent({});
+export default defineComponent({
+  name: 'article-list',
+
+  setup() {
+    const MDContent = computed(() => {
+      return marked('# 标题 \n *字体* \n **字体**' || '', {
+        sanitize: true,
+      });
+    });
+
+    return { MDContent };
+  },
+});
 </script>
 <style lang="scss"></style>
